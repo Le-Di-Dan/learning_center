@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Bash(python3 .claude/scripts/skill-stats.py:*)",
+      "Bash(bash .claude/scripts/session-context.sh)",
+      "Bash(shasum -a 256:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/scripts/session-context.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
